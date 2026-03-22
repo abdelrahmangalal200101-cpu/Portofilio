@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="0.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#aaaaaa"/>
+    </linearGradient>
+    <clipPath id="clip">
+      <rect width="32" height="32" rx="7"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="32" height="32" rx="7" fill="#080808"/>
+
+  <!-- Subtle corner marks — futuristic UI feel -->
+  <path d="M2 7 L2 2 L7 2" stroke="#ffffff" stroke-width="0.8" fill="none" opacity="0.25"/>
+  <path d="M25 2 L30 2 L30 7" stroke="#ffffff" stroke-width="0.8" fill="none" opacity="0.25"/>
+  <path d="M2 25 L2 30 L7 30" stroke="#ffffff" stroke-width="0.8" fill="none" opacity="0.25"/>
+  <path d="M25 30 L30 30 L30 25" stroke="#ffffff" stroke-width="0.8" fill="none" opacity="0.25"/>
+
+  <!-- Letter A — futuristic: flat top, angular crossbar cut -->
+  <path d="M10 26 L16 6 L22 26" stroke="url(#shine)" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="miter" fill="none" filter="url(#glow)"/>
+  <!-- crossbar with gap in center for futuristic feel -->
+  <line x1="12.2" y1="19.5" x2="14.5" y2="19.5" stroke="url(#shine)" stroke-width="1.8" stroke-linecap="butt" filter="url(#glow)"/>
+  <line x1="17.5" y1="19.5" x2="19.8" y2="19.5" stroke="url(#shine)" stroke-width="1.8" stroke-linecap="butt" filter="url(#glow)"/>
+
+  <!-- tiny scan line at bottom -->
+  <line x1="8" y1="29" x2="24" y2="29" stroke="#ffffff" stroke-width="0.4" opacity="0.15"/>
+</svg>
