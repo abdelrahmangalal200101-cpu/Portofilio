@@ -243,77 +243,140 @@ function TimelineNode({
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.15, ease: EASE }}
-      className={`relative flex items-center ${isLeft ? "flex-row" : "flex-row-reverse"}`}
     >
-      {/* Card */}
-      <div
-        className={`w-[calc(50%-28px)] ${isLeft ? "pr-6 text-right" : "pl-6 text-left"}`}
-      >
-        <div
-          className="relative p-5 rounded-2xl group
-          bg-white dark:bg-slate-900
-          border border-slate-200/80 dark:border-slate-800
-          hover:border-slate-300 dark:hover:border-slate-700
-          hover:shadow-lg hover:shadow-slate-200/40 dark:hover:shadow-slate-950/60
-          transition-all duration-300"
-        >
-          <div
-            className={`flex items-center gap-2 mb-2 ${isLeft ? "justify-end" : "justify-start"}`}
-          >
-            <span
-              className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full"
-              style={{
-                color: item.tagColor,
-                background: `${item.tagColor}15`,
-                border: `1px solid ${item.tagColor}30`,
-              }}
-            >
-              {item.tag}
-            </span>
-            <span className="font-black text-2xl text-slate-100 dark:text-slate-800 font-mono leading-none select-none">
-              {item.year}
-            </span>
-          </div>
-
-          <h3
-            className="font-bold text-slate-900 dark:text-slate-50 text-sm mb-1.5"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
-            {item.title}
-          </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            {item.desc}
-          </p>
-
-          {/* connector */}
-          <div
-            className={`absolute top-1/2 -translate-y-1/2 h-px w-6 bg-slate-200 dark:bg-slate-700
-            ${isLeft ? "-right-6" : "-left-6"}`}
+      {/* ── Mobile layout (< md) ── */}
+      <div className="flex md:hidden items-start gap-4">
+        {/* Dot */}
+        <div className="flex flex-col items-center flex-shrink-0 mt-1">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={inView ? { scale: 1 } : {}}
+            transition={{
+              duration: 0.4,
+              delay: index * 0.15 + 0.25,
+              type: "spring",
+              stiffness: 300,
+            }}
+            className="w-4 h-4 rounded-full border-2 border-white dark:border-slate-950 flex-shrink-0"
+            style={{
+              background: item.tagColor,
+              boxShadow: `0 0 14px 4px ${item.tagColor}50`,
+            }}
           />
+        </div>
+
+        {/* Card */}
+        <div className="flex-1 pb-2">
+          <div
+            className="relative p-5 rounded-2xl
+            bg-white dark:bg-slate-900
+            border border-slate-200/80 dark:border-slate-800
+            hover:border-slate-300 dark:hover:border-slate-700
+            hover:shadow-lg hover:shadow-slate-200/40 dark:hover:shadow-slate-950/60
+            transition-all duration-300"
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <span
+                className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full"
+                style={{
+                  color: item.tagColor,
+                  background: `${item.tagColor}15`,
+                  border: `1px solid ${item.tagColor}30`,
+                }}
+              >
+                {item.tag}
+              </span>
+              <span className="font-black text-2xl text-slate-100 dark:text-slate-800 font-mono leading-none select-none">
+                {item.year}
+              </span>
+            </div>
+            <h3
+              className="font-bold text-slate-900 dark:text-slate-50 text-sm mb-1.5"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              {item.title}
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Center dot */}
-      <div className="relative z-10 flex-shrink-0 w-14 flex items-center justify-center">
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={inView ? { scale: 1 } : {}}
-          transition={{
-            duration: 0.4,
-            delay: index * 0.15 + 0.25,
-            type: "spring",
-            stiffness: 300,
-          }}
-          className="w-4 h-4 rounded-full border-2 border-white dark:border-slate-950"
-          style={{
-            background: item.tagColor,
-            boxShadow: `0 0 14px 4px ${item.tagColor}50`,
-          }}
-        />
-      </div>
+      {/* ── Desktop layout (md+) ── */}
+      <div
+        className={`hidden md:flex items-center ${isLeft ? "flex-row" : "flex-row-reverse"}`}
+      >
+        {/* Card */}
+        <div
+          className={`w-[calc(50%-28px)] ${isLeft ? "pr-6 text-right" : "pl-6 text-left"}`}
+        >
+          <div
+            className="relative p-5 rounded-2xl group
+            bg-white dark:bg-slate-900
+            border border-slate-200/80 dark:border-slate-800
+            hover:border-slate-300 dark:hover:border-slate-700
+            hover:shadow-lg hover:shadow-slate-200/40 dark:hover:shadow-slate-950/60
+            transition-all duration-300"
+          >
+            <div
+              className={`flex items-center gap-2 mb-2 ${isLeft ? "justify-end" : "justify-start"}`}
+            >
+              <span
+                className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full"
+                style={{
+                  color: item.tagColor,
+                  background: `${item.tagColor}15`,
+                  border: `1px solid ${item.tagColor}30`,
+                }}
+              >
+                {item.tag}
+              </span>
+              <span className="font-black text-2xl text-slate-100 dark:text-slate-800 font-mono leading-none select-none">
+                {item.year}
+              </span>
+            </div>
 
-      {/* Opposite side spacer */}
-      <div className="w-[calc(50%-28px)]" />
+            <h3
+              className="font-bold text-slate-900 dark:text-slate-50 text-sm mb-1.5"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              {item.title}
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              {item.desc}
+            </p>
+
+            {/* connector */}
+            <div
+              className={`absolute top-1/2 -translate-y-1/2 h-px w-6 bg-slate-200 dark:bg-slate-700
+              ${isLeft ? "-right-6" : "-left-6"}`}
+            />
+          </div>
+        </div>
+
+        {/* Center dot */}
+        <div className="relative z-10 flex-shrink-0 w-14 flex items-center justify-center">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={inView ? { scale: 1 } : {}}
+            transition={{
+              duration: 0.4,
+              delay: index * 0.15 + 0.25,
+              type: "spring",
+              stiffness: 300,
+            }}
+            className="w-4 h-4 rounded-full border-2 border-white dark:border-slate-950"
+            style={{
+              background: item.tagColor,
+              boxShadow: `0 0 14px 4px ${item.tagColor}50`,
+            }}
+          />
+        </div>
+
+        {/* Opposite side spacer */}
+        <div className="w-[calc(50%-28px)]" />
+      </div>
     </motion.div>
   );
 }
@@ -555,9 +618,10 @@ export default function About() {
           </motion.div>
 
           <div className="relative">
-            {/* Center line */}
+            {/* Center line — desktop في المنتصف، mobile على اليسار بجانب الـ dot */}
             <div
-              className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2
+              className="absolute top-0 bottom-0 w-px
+              left-[9px] md:left-1/2 md:-translate-x-1/2
               bg-gradient-to-b from-transparent via-slate-200 dark:via-slate-800 to-transparent"
             />
             <div className="flex flex-col gap-10">
