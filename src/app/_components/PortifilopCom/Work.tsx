@@ -72,11 +72,6 @@ const TechIcon = ({ icon, color }: { icon: string; color: string }) => {
         <path d="M20 4H4L4 9l10 0L4 20h16v-5H10L20 4Z" />
       </svg>
     ),
-    redux: (
-      <svg viewBox="0 0 24 24" className="w-3 h-3" fill={color}>
-        <path d="M16.63 16.63c.39-1.54.1-3.22-.93-4.5l.93-1.86c1.34 1.81 1.76 4.17 1.06 6.4l-1.06-.04ZM12.5 19.5c-1.08 0-2.12-.28-3.03-.8l-1.5 1.1c1.35.78 2.88 1.2 4.53 1.2 2.26 0 4.32-.83 5.9-2.2l-1.07-.94c-1.28 1.08-2.93 1.64-4.83 1.64Zm-6-7.5c0-1.47.5-2.83 1.34-3.91L6.77 6.94A8.49 8.49 0 0 0 4.5 12c0 2.1.76 4.03 2.02 5.52l1.08-.93A6.5 6.5 0 0 1 6.5 12Zm5.5-6.5c1.5 0 2.88.5 3.99 1.34l1.07-.93A8.5 8.5 0 0 0 12 4.5c-1.5 0-2.93.4-4.16 1.1l.94 1.5A6.5 6.5 0 0 1 12 5.5Z" />
-      </svg>
-    ),
     jwt: (
       <svg viewBox="0 0 24 24" className="w-3 h-3" fill={color}>
         <path d="M12 1 9 9H1l6.5 4.5L5 22l7-5 7 5-2.5-8.5L22 9h-8L12 1Z" />
@@ -105,6 +100,11 @@ const TechIcon = ({ icon, color }: { icon: string; color: string }) => {
     oop: (
       <svg viewBox="0 0 24 24" className="w-3 h-3" fill={color}>
         <path d="M12 2L2 7v10l10 5 10-5V7L12 2Zm0 2.18 7.5 3.75-7.5 3.75-7.5-3.75L12 4.18ZM4 15.46V9.17l7 3.5v6.29l-7-3.5Zm9 3.5v-6.29l7-3.5v6.29l-7 3.5Z" />
+      </svg>
+    ),
+    context: (
+      <svg viewBox="0 0 24 24" className="w-3 h-3" fill={color}>
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
       </svg>
     ),
   };
@@ -858,7 +858,7 @@ function EcommerceSVG() {
         fill="#fbbf24"
         fontFamily="monospace"
       >
-        In Progress
+        Next.js + Context
       </text>
       <text
         x="206"
@@ -869,7 +869,7 @@ function EcommerceSVG() {
         opacity="0.7"
         fontFamily="monospace"
       >
-        Next.js + Redux
+        Live Now
       </text>
     </svg>
   );
@@ -946,22 +946,22 @@ const projects: Project[] = [
   {
     id: 4,
     title: "E-commerce Platform",
-    subtitle: "Frontend · In Progress",
+    subtitle: "Next.js · Full Frontend",
     description:
-      "A fully functional e-commerce frontend with JWT auth, product catalog, wishlist, advanced cart powered by Redux, reviews, order management UI, Zod form validation, and full REST API integration.",
+      "A fully functional e-commerce frontend with JWT auth, product catalog, wishlist, advanced cart powered by Context API, reviews, order management UI, Zod form validation, and full REST API integration.",
     stack: [
       { name: "Next.js", icon: "nextjs", color: "#e2e8f0" },
       { name: "React", icon: "react", color: "#61DAFB" },
       { name: "TypeScript", icon: "typescript", color: "#3178C6" },
-      { name: "Redux", icon: "redux", color: "#764ABC" },
+      { name: "Context API", icon: "context", color: "#61DAFB" },
       { name: "React Query", icon: "reactquery", color: "#FF4154" },
       { name: "Zod", icon: "zod", color: "#3068b7" },
       { name: "JWT", icon: "jwt", color: "#c8522a" },
       { name: "Tailwind", icon: "tailwind", color: "#38BDF8" },
     ],
-    live: null,
-    github: "#",
-    status: "wip",
+    live: "https://e-commerce-blush-nu-35.vercel.app",
+    github: "https://github.com/abdelrahmangalal200101-cpu/E-Commerce",
+    status: "live",
     featured: false,
     svg: <EcommerceSVG />,
     accent: "#fbbf24",
@@ -1219,19 +1219,6 @@ export default function Work() {
               dark:hover:shadow-slate-950/60"
             >
               <div
-                className="absolute top-4 right-4 z-10 flex items-center gap-1.5
-              px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold
-              bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400
-              border border-amber-200 dark:border-amber-800/60"
-              >
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-500" />
-                </span>
-                In Progress
-              </div>
-
-              <div
                 className="relative md:w-2/5 overflow-hidden"
                 style={{
                   background: `linear-gradient(135deg, ${project.accentBg}, rgba(15,23,42,0.03))`,
@@ -1281,7 +1268,7 @@ export default function Work() {
                     "Cart + Coupon System",
                     "Wishlist & Reviews UI",
                     "Orders & Checkout Flow",
-                    "Redux State Management",
+                    "Context API State Management",
                     "Zod Form Validation",
                   ].map((feat) => (
                     <div
@@ -1304,26 +1291,34 @@ export default function Work() {
                 </div>
 
                 <div className="flex items-center gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
-                  <span
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full
-                    text-xs font-medium font-mono opacity-50 cursor-not-allowed"
-                    style={{
-                      color: project.accent,
-                      background: project.accentBg,
-                      border: `1px solid ${project.accentBorder}`,
-                    }}
+                  <motion.a
+                    href="https://e-commerce-blush-nu-35.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium font-mono text-slate-50"
+                    style={{ background: project.accent }}
                   >
-                    <Clock size={11} strokeWidth={2.5} />
-                    Live Soon
-                  </span>
-                  <span
+                    <ExternalLink size={11} strokeWidth={2.5} />
+                    Live Demo
+                  </motion.a>
+                  <motion.a
+                    href="https://github.com/abdelrahmangalal200101-cpu/E-Commerce"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full
-                  text-xs font-medium font-mono opacity-40 cursor-not-allowed
-                  text-slate-500 border border-slate-200 dark:border-slate-700"
+                      text-xs font-medium font-mono
+                      text-slate-600 dark:text-slate-300
+                      border border-slate-200 dark:border-slate-700
+                      hover:bg-slate-50 dark:hover:bg-slate-800
+                      transition-all duration-200"
                   >
                     <Github size={11} strokeWidth={2.5} />
-                    Private
-                  </span>
+                    GitHub
+                  </motion.a>
                 </div>
               </div>
             </motion.div>
