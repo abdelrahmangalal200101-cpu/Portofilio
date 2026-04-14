@@ -8,11 +8,7 @@ import React from "react";
 type EaseTuple = [number, number, number, number];
 const EASE: EaseTuple = [0.22, 1, 0.36, 1];
 
-/* ─────────────────────────────────────────────────────── */
-// 💡 TO ENABLE CV DOWNLOAD:
-//    1. Put your CV file in /public/cv.pdf
-//    2. The Download CV button is already wired — it will work automatically
-/* ─────────────────────────────────────────────────────── */
+
 
 const socials = [
   {
