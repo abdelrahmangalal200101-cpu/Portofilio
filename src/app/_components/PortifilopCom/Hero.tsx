@@ -324,7 +324,6 @@ function DevIllustration() {
   );
 }
 
-/* ─── Floating card ─────────────────────────────────────── */
 function FloatingCard({
   label,
   value,
