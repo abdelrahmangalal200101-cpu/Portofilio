@@ -2,6 +2,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-syne: var(--font-syne), sans-serif;
+  --font-jakarta: var(--font-jakarta), sans-serif;
   --font-dm-sans: var(--font-dm-sans), sans-serif;
 }

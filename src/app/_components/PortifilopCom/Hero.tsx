@@ -349,10 +349,11 @@ function FloatingCard({
         },
       }}
       style={style}
-      className="absolute z-10 flex items-center gap-2 px-3 py-1.5 rounded-lg
+      className="absolute z-10 flex items-center gap-1 sm:gap-2 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg
         bg-slate-900/90 dark:bg-slate-800/90
         border border-slate-700/60 backdrop-blur-sm shadow-xl
-        text-[11px] font-mono pointer-events-none select-none"
+        text-[8px] sm:text-[11px] font-mono pointer-events-none select-none
+        max-w-[38vw] sm:max-w-none whitespace-nowrap"
     >
       <span className="text-slate-400">{label}</span>
       <span className="text-[#c8522a]">=</span>
@@ -661,7 +662,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
-          className="relative flex items-center justify-center lg:justify-end"
+          className="relative flex items-center justify-center lg:justify-end px-3 sm:px-0"
         >
           <div className="relative w-full max-w-[480px]">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#c8522a]/10 via-transparent to-blue-500/[0.08] blur-2xl scale-105" />
@@ -672,7 +673,7 @@ export default function Hero() {
                 border border-slate-200/60 dark:border-slate-800/60
                 bg-slate-50/50 dark:bg-slate-900/50
                 shadow-2xl shadow-slate-200/50 dark:shadow-slate-950/80
-                backdrop-blur-sm p-6"
+                backdrop-blur-sm p-4 sm:p-6"
             >
               <DevIllustration />
             </motion.div>
@@ -689,29 +690,29 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.8, duration: 0.5, ease: EASE }}
-              className="absolute -bottom-4 -right-4 flex items-center gap-3 px-4 py-3 rounded-2xl
+              className="absolute bottom-2 right-2 sm:-bottom-4 sm:-right-4 flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl
                 bg-white dark:bg-slate-900
                 border border-slate-200 dark:border-slate-800
                 shadow-xl shadow-slate-200/50 dark:shadow-slate-950/80"
             >
               <div className="flex flex-col items-center">
                 <span
-                  className="font-extrabold text-lg text-slate-900 dark:text-slate-50 leading-none"
+                  className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-slate-50 leading-none"
                   style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
-                  2+
+                  1+
                 </span>
-                <span className="text-[10px] text-slate-400">Years</span>
+                <span className="text-[9px] sm:text-[10px] text-slate-400">Years</span>
               </div>
-              <div className="w-px h-8 bg-slate-200 dark:bg-slate-700" />
+              <div className="w-px h-7 sm:h-8 bg-slate-200 dark:bg-slate-700" />
               <div className="flex flex-col items-center">
                 <span
-                  className="font-extrabold text-lg text-slate-900 dark:text-slate-50 leading-none"
+                  className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-slate-50 leading-none"
                   style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
                   20+
                 </span>
-                <span className="text-[10px] text-slate-400">Projects</span>
+                <span className="text-[9px] sm:text-[10px] text-slate-400">Projects</span>
               </div>
             </motion.div>
           </div>
